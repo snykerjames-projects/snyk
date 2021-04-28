@@ -73,5 +73,17 @@ describe('@snyk/protect', () => {
 
       expect(log).toHaveBeenCalledWith('Nothing to patch, done');
     });
+
+    it('for project with no .snyk file', async () => {
+      const fixture = 'no-snyk-file';
+      const fixtureFolder = path.join(__dirname, '../fixtures', fixture);
+      const modulePath = path.join(tempFolder, fixture);
+
+      const log = jest.spyOn(global.console, 'log');
+      await fse.copy(fixtureFolder, modulePath);
+      await protect(modulePath);
+
+      expect(log).toHaveBeenCalledWith('No .snyk file found');
+    });
   });
 });
