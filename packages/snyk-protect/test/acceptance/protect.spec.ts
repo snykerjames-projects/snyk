@@ -59,4 +59,19 @@ describe('@snyk/protect', () => {
     const actualPatchedFileContents2 = fs.readFileSync(targeFilePath2, 'utf-8');
     expect(actualPatchedFileContents2).toMatchSnapshot();
   });
+
+  describe('does not apply any patches and does not fail', () => {
+    // in this scenario .snyk file has a vulnId which corresponds to the `lodash` package, but there are not instances of lodash in the node_modules
+    it('for project with no modules with the target package name', async () => {
+      const fixture = 'no-matching-paths';
+      const fixtureFolder = path.join(__dirname, '../fixtures', fixture);
+      const modulePath = path.join(tempFolder, fixture);
+
+      const log = jest.spyOn(global.console, 'log');
+      await fse.copy(fixtureFolder, modulePath);
+      await protect(modulePath);
+
+      expect(log).toHaveBeenCalledWith('Nothing to patch, done');
+    });
+  });
 });
