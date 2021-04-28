@@ -74,6 +74,21 @@ describe('@snyk/protect', () => {
       expect(log).toHaveBeenCalledWith('Nothing to patch, done');
     });
 
+    // skipped because we need to check the versions of the found modules before we attempt to patch them which we don't currently do
+    // and in order to do that, we need to first switch over to the new endpoint
+    // it('for a project that has an instance of the target module but we have no patches for its version', async () => {
+    //   const fixture = 'target-module-exists-but-no-patches-for-version';
+    //   const fixtureFolder = path.join(__dirname, '../fixtures', fixture);
+    //   const modulePath = path.join(tempFolder, fixture);
+
+    //   const log = jest.spyOn(global.console, 'log');
+    //   await fse.copy(fixtureFolder, modulePath);
+    //   await protect(modulePath);
+
+    //   expect(log).toHaveBeenCalledWith('Nothing to patch, done');
+    // });
+
+    // fixture has a lodash@4.14.1 which we don't have patches for
     it('for project with no .snyk file', async () => {
       const fixture = 'no-snyk-file';
       const fixtureFolder = path.join(__dirname, '../fixtures', fixture);
