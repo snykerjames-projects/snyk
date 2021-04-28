@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@snyk/protect works for project with a single patchable module 1`] = `
+exports[`@snyk/protect applies patch(es) works for project with a single patchable module 1`] = `
 "/**
  * @license
  * Lodash <https://lodash.com/>
@@ -17120,7 +17120,7 @@ exports[`@snyk/protect works for project with a single patchable module 1`] = `
 "
 `;
 
-exports[`@snyk/protect works for project with multiple patchable modules 1`] = `
+exports[`@snyk/protect applies patch(es) works for project with multiple patchable modules 1`] = `
 "/**
  * @license
  * Lodash <https://lodash.com/>
@@ -34240,7 +34240,7 @@ exports[`@snyk/protect works for project with multiple patchable modules 1`] = `
 "
 `;
 
-exports[`@snyk/protect works for project with multiple patchable modules 2`] = `
+exports[`@snyk/protect applies patch(es) works for project with multiple patchable modules 2`] = `
 "/**
  * @license
  * Lodash <https://lodash.com/>
