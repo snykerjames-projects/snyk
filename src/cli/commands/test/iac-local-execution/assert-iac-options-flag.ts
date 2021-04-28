@@ -18,6 +18,7 @@ const keys: (keyof IaCTestFlags)[] = [
   'help',
   'q',
   'quiet',
+  'full-scan',
 ];
 const allowed = new Set<string>(keys);
 

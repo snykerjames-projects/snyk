@@ -130,7 +130,12 @@ export type IaCTestFlags = Pick<
   help?: 'help';
   q?: boolean;
   quiet?: boolean;
-};
+} & TerraformPlanFlags;
+
+// Flags specific for Terraform plan scanning
+interface TerraformPlanFlags {
+  'full-scan'?: boolean;
+}
 
 // Includes all IaCTestOptions plus additional properties
 // that are added at runtime and not part of the parsed

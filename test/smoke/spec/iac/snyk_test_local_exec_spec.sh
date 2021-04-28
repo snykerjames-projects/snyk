@@ -196,9 +196,8 @@ Describe "Snyk iac test --experimental command"
       The output should include "tf-plan.json for known issues, found"
     End
 
-    # The test below should be enabled once we add the full scan flag
-    xIt "finds issues in a Terraform plan file - full scan flag"
-      When run snyk iac test ../fixtures/iac/terraform-plan/tf-plan.json --experimental
+    It "finds issues in a Terraform plan file - full scan flag"
+      When run snyk iac test ../fixtures/iac/terraform-plan/tf-plan.json --experimental --full-scan
       The status should be failure # issues found
       The output should include "Testing tf-plan.json"
 

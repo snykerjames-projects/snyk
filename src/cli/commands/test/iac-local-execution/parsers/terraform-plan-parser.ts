@@ -114,7 +114,7 @@ export function isTerraformPlan(terraformPlanJson: TerraformPlanJson): boolean {
 export function tryParsingTerraformPlan(
   terraformPlanFile: IacFileData,
   terraformPlanJson: TerraformPlanJson,
-  { isFullScan }: { isFullScan: boolean } = { isFullScan: false },
+  { isFullScan }: { isFullScan: boolean | undefined } = { isFullScan: false },
 ): Array<IacFileParsed> {
   try {
     const scannableInput = isFullScan
